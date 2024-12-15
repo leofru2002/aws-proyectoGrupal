@@ -1,0 +1,40 @@
+service: aws-proyectoGrupal
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource: "arn:aws:dynamodb:us-east-1:588738582603:table/aws-proyectoGrupal"
+
+functions:
+  createEvent:
+    handler: src/createEvent.createEvent
+    events:
+      - httpApi:
+          path: /events
+          method: post
+
+  getEvents:
+    handler: src/getEvents.getEvents
+    events:
+      - httpApi:
+          path: /events
+          method: get
+
+  updateEvent:
+    handler: src/updateEvent.updateEvent
+    events:
+      - httpApi:
+          path: /events/{id}
+          method: put
+
+  deleteEvent:
+    handler: src/deleteEvent.deleteEvent
+    events:
+      - httpApi:
+          path: /events/{id}
+          method: delete

@@ -1,0 +1,22 @@
+{
+  "name": "aws-proyectoGrupal",
+  "version": "1.0.0",
+  "description": "AWS Lambda CRUD Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "sls offline start",
+    "deploy": "sls deploy",
+    "remove": "sls remove"
+  },
+  "author": "LEONARDO",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "serverless": "^3.33.0",
+    "serverless-offline": "^12.0.4",
+    "serverless-deployment-bucket": "^1.6.0"
+  }
+}
